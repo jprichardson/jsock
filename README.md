@@ -53,7 +53,7 @@ var jsock = require('jsock')
 var PORT = 45643
 
 var server = net.createServer(function(client) {
-  client = jsock(client)
+  var client = jsock(client)
   client.on('data', function(data) {
     console.log(data.type) //message
     console.log(data.contents) //Hello server!
@@ -65,7 +65,7 @@ server.listen(PORT)
 
 //simulate later in time
 setTimeout(function() {
-  client = jsock(net.createConnection(PORT))
+  var client = jsock(net.createConnection(PORT))
   client.on('data', function(data) {
     console.log(data.type) //ack
     console.log(data.contents) //Welcome client!
@@ -76,6 +76,85 @@ setTimeout(function() {
   client.write({type: 'message', contents: "Hello server!"})
 },250)
 ```
+
+#### Node.js / Browserify
+
+One of the easiest ways to communicate between the browser and Node.js is to use Websockets. Specifically, [shoe](https://github.com/substack/shoe). Shoe is a wrapper around [sockjs](https://github.com/sockjs) that makes the Websockets more Node.js stream like.
+
+**server.js**:
+```js
+var express = require('express') //<--- not necessary, but here for example
+  , http = require('http')
+  , shoe = require('shoe')
+  , jsock = require('jsock')
+
+var app = express()
+
+/**
+  ... express config here ...
+**/
+
+var server = http.createServer(app)
+
+var sock = shoe(function(stream) {
+  var jsockStream = jsock(stream) //stream is your websocket client connecting
+
+  jsockStream.on('data', function(data) {
+    console.log(data.type) //message
+    console.log(data.message) //hey web server!
+    jsockStream.write({type: 'message', content: 'hey web browser'})
+  })
+})
+
+server.listen(app.get('port'), function(){
+  console.log("Web server listening in %s on port %d", colors.red(process.env.NODE_ENV), app.get('port'));
+})
+
+sock.install(server, '/data') //<--- websocket path, name it whatever as long as it doesn't conflict with your express routes
+```
+
+**client.js**: (this should be in your browser)
+```js
+var shoe = require('shoe')
+  , jsock = require('jsock')
+
+var stream = shoe('/data')
+var jsockStream = jsock(stream)
+
+jsockStream.on('data', function(data) {
+  console.log(data.type) //message
+  console.log(data.message) //hey web browser
+})
+jsockStream.write({type: 'message', content: 'hey web server!'})
+```
+
+
+#### Node.js / WebSockets
+
+You can use this with plain old WebSockets as well.  I may modify jsock to do this mapping for you.
+
+This has not been tested, but something like this should work:
+
+```js
+var origin = window.location.origin.split('//')[1]
+var ws = new WebSocket('ws://' + origin + '/data') //<--- path that you define on the server
+ws.write = ws.send //map 'send' to 'write'
+
+//create on('data') event
+ws.on = function(event, callback) {
+  if (event === 'data') {
+    ws.onmessage = function(event) {
+      callback(event.data)
+    }
+  }
+}
+
+var jsonStream = jsock(ws) 
+
+//now use jsonStream as you would
+
+```
+
 
 
 License
