@@ -6,14 +6,7 @@
     "type": "git",
     "url": "https://github.com/jprichardson/jsock"
   },
-  "keywords": [
-    "JSON",
-    "sockets",
-    "tcp",
-    "streams",
-    "browser",
-    "socket"
-  ],
+  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket", "websocket", "websockets"],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
