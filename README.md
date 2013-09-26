@@ -4,6 +4,33 @@ jsock
 JavaScript component for easy JSON handling over sockets or streams. Works in Node.js or the browser.
 
 
+Why?
+----
+
+Writing raw text over streams or WebSockets is typically not enough to support robust communications between client and server. Let's assume that you need to pass different types of data such as configuration information and messages. How would you do this? How would the client know which is which?
+
+One simple solution is to develop a JSON protocol to handle this:
+
+
+**config data:**
+```js
+{
+  "type": "config",
+  "contents": {/* config info */}
+}
+```
+
+**message data:**
+```js
+{
+  "type": "message",
+  "contents": "Your son shall be named Chalupa Batman!"
+}
+```
+
+If your JSON objects are too large, you can't simply `stringify()` it and assume that the full message will be received in one data read on the client. You must use a technique called [framing][framing] to solve this problem. This is a fancy way of saying that you need to delimit your data so that the receiving end can tell the beginning and the end. `jsock` does this for you automatically. Now you can build robust communication protocols within Node.js and within the browser.
+
+
 
 Install
 -------
@@ -163,5 +190,7 @@ License
 (MIT License)
 
 Copyright 2013, JP Richardson  <jprichardson@gmail.com>
+
+[framing]: http://en.wikipedia.org/wiki/Frame_(networking)
 
 
