@@ -2,9 +2,6 @@
   "name": "jsock",
   "version": "0.0.2",
   "description": "Easy JSON over sockets or streams.",
-  "homepage": [
-    ""
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jprichardson/jsock"
