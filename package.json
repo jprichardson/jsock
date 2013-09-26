@@ -9,7 +9,14 @@
     "type": "git",
     "url": "https://github.com/jprichardson/jsock"
   },
-  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket"],
+  "keywords": [
+    "JSON",
+    "sockets",
+    "tcp",
+    "streams",
+    "browser",
+    "socket"
+  ],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
@@ -19,7 +26,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "testutil": "~0.6.0"
+    "testutil": "~0.6.0",
+    "nextflow": "~0.3.0"
   },
   "main": "./lib/jsock.js",
   "scripts": {
