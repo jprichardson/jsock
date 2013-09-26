@@ -183,9 +183,9 @@ ws.on = function(event, callback) {
   }
 }
 
-var jsonStream = jsock(ws) 
+var jsockStream = jsock(ws) 
 
-//now use jsonStream as you would
+//now use jsockStream as you would
 
 ```
 
