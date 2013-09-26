@@ -1,0 +1,9 @@
+{
+  "name": "jsock",
+  "version": "0.0.1",
+  "description": "Easy JSON over sockets or streams.",
+  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket"],
+  "scripts": [
+    "lib/jsock.js"
+  ]
+}
