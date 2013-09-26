@@ -129,7 +129,7 @@ jsockStream.write({type: 'message', content: 'hey web server!'})
 ```
 
 
-#### Node.js / WebSockets
+#### Node.js / Browser WebSockets
 
 You can use this with plain old WebSockets as well.  I may modify jsock to do this mapping for you.
 
