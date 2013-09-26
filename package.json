@@ -1,6 +1,6 @@
 {
   "name": "jsock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easy JSON over sockets or streams.",
   "repository": {
     "type": "git",
