@@ -141,7 +141,7 @@ var sock = shoe(function(stream) {
 })
 
 server.listen(app.get('port'), function(){
-  console.log("Web server listening in %s on port %d", colors.red(process.env.NODE_ENV), app.get('port'));
+  console.log("Web server listening in %s on port %d", process.env.NODE_ENV, app.get('port'));
 })
 
 sock.install(server, '/data') //<--- websocket path, name it whatever as long as it doesn't conflict with your express routes
