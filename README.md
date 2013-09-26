@@ -32,6 +32,13 @@ If your JSON objects are too large, you can't simply `stringify()` it and assume
 
 
 
+Name
+----
+
+**jsock** = JSON over sockets.
+
+
+
 Install
 -------
 
