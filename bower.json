@@ -1,0 +1,15 @@
+{
+  "name": "jsock",
+  "repo": "jprichardson/jsock",
+  "description": "Easy JSON over sockets or streams.",
+  "version": "0.0.3",
+  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket", "websocket", "websockets"],
+  "main": "lib/jsock.js",
+  "dependencies": {},
+  "development": {},
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

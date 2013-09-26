@@ -51,6 +51,12 @@ Install
 
     component install jprichardson/jsock
 
+
+### Bower
+
+    bower install jsock
+
+
 ### Script
 
 ```html
