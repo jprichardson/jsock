@@ -2,8 +2,18 @@
   "name": "jsock",
   "version": "0.0.3",
   "description": "Easy JSON over sockets or streams.",
-  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket", "websocket", "websockets"],
+  "keywords": [
+    "JSON",
+    "sockets",
+    "tcp",
+    "streams",
+    "browser",
+    "socket",
+    "websocket",
+    "websockets"
+  ],
   "scripts": [
     "lib/jsock.js"
-  ]
+  ],
+  "main": "lib/jsock.js"
 }

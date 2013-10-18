@@ -6,7 +6,16 @@
     "type": "git",
     "url": "https://github.com/jprichardson/jsock"
   },
-  "keywords": ["JSON", "sockets", "tcp", "streams", "browser", "socket", "websocket", "websockets"],
+  "keywords": [
+    "JSON",
+    "sockets",
+    "tcp",
+    "streams",
+    "browser",
+    "socket",
+    "websocket",
+    "websockets"
+  ],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
@@ -19,7 +28,7 @@
     "testutil": "~0.6.0",
     "nextflow": "~0.3.0"
   },
-  "main": "./lib/jsock.js",
+  "main": "lib/jsock.js",
   "scripts": {
     "test": "mocha test"
   }
